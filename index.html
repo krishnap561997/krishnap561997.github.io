@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krishnaprasad K.A.</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Krishnaprasad K.A. — postdoctoral researcher in computational fluid dynamics, turbulent dispersal, multiphase flows and ML-based closures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column with a wide media band for simulation clips; sections labelled like a run log. */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --fg:#14211f; --muted:#56655f; --line:#d7dfdb;
+  --accent:#1f7a5c; --accent-2:#2b3f8f; --chip:#e6efeb;
+  --display:"Familjen Grotesk",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1715; --surface:#16211e; --fg:#e4ece8; --muted:#9aaba4; --line:#2a3833;
+  --accent:#5cc79d; --accent-2:#9db0ff; --chip:#1d2c27; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1715; --surface:#16211e; --fg:#e4ece8; --muted:#9aaba4; --line:#2a3833;
+  --accent:#5cc79d; --accent-2:#9db0ff; --chip:#1d2c27; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 1.06rem/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto}
+.col{max-width:68ch}
+a{color:var(--accent)} a:hover{color:var(--accent-2)}
+a:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+.label{font:500 .74rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:6px 20px;padding-block:20px;border-bottom:1px solid var(--line);font:500 .9rem var(--display)}
+nav a{color:var(--fg);text-decoration:none} nav a:hover{color:var(--accent)}
+nav .me{margin-right:auto;font-weight:700}
+header.hero{padding-block:56px 40px;display:grid;gap:18px}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:700;letter-spacing:-.02em}
+.hero .role{font:500 1.15rem var(--display);color:var(--muted)}
+.hero p{margin:0;font-size:1.15rem}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{font:500 .9rem var(--display);padding:8px 14px;border:1px solid var(--line);border-radius:6px;text-decoration:none;color:var(--fg);background:var(--surface)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn:hover{border-color:var(--accent);color:var(--accent)} .btn.primary:hover{color:var(--bg);opacity:.9}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font:400 .78rem var(--mono);background:var(--chip);color:var(--fg);padding:3px 8px;border-radius:4px}
+section{padding-block:48px;border-top:1px solid var(--line);display:grid;gap:28px}
+section>h2{font-size:1.9rem}
+.sec-head{display:grid;gap:8px}
+.proj{display:grid;gap:14px}
+.proj h3{font-size:1.35rem}
+.proj .meta{font:400 .85rem var(--mono);color:var(--muted)}
+.proj ul{margin:0;padding-left:1.1em;display:grid;gap:4px}
+.proj p{margin:0}
+.featured{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:760px){.featured{grid-template-columns:1fr}}
+figure{margin:0;display:grid;gap:8px}
+video{width:100%;max-width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:var(--chip);display:block}
+figcaption{font:400 .82rem/1.45 var(--mono);color:var(--muted)}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:760px){.gallery{grid-template-columns:1fr}}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.note{font-size:.95rem;color:var(--muted);margin:0}
+ol.pubs{margin:0;padding:0;list-style:none;display:grid;gap:16px;counter-reset:p}
+ol.pubs li{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:6px;counter-increment:p}
+ol.pubs li::before{content:counter(p,decimal-leading-zero);font:500 .85rem/1.9 var(--mono);color:var(--muted)}
+.pubs .t{font-weight:600}
+.pubs .v{font-style:italic;color:var(--muted)}
+.pubs b{font-weight:600;color:var(--accent)}
+.tl{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.tl li{display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:12px}
+.tl .d{font:400 .85rem/1.8 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+@media (max-width:520px){.tl li,ol.pubs li{grid-template-columns:1fr}}
+.contact code{font:500 1rem var(--mono);background:var(--chip);padding:4px 8px;border-radius:4px;user-select:all}
+footer{padding-block:32px;border-top:1px solid var(--line);font:400 .8rem var(--mono);color:var(--muted)}
+@media (prefers-reduced-motion:reduce){video{animation:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Primary">
+  <a class="me" href="#top">Krishnaprasad K.A.</a>
+  <a href="#research">Research</a>
+  <a href="#publications">Publications</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header class="hero" id="top">
+  <span class="label">Postdoctoral Researcher · Mechanical Engineering · University of Florida</span>
+  <h1>Krishnaprasad K.A.</h1>
+  <div class="role">Computational science, multiphase flows and data-driven modeling</div>
+  <p class="col">I study turbulent multiphase flows, using high-fidelity simulations to understand the physics and turning that understanding into fast prediction models. In my PhD, I developed a novel statistical overloading framework for Euler–Lagrange CFD simulations that extracts comprehensive two-point, two-time turbulent dispersal statistics with rigorous uncertainty estimation, and applied it to airborne aerosol transmission indoors. As a postdoc, I'm part of a team developing comprehensive ML-based reduced-order models for microchannel flow boiling, spanning heterogeneous nucleate boiling, elongated bubbles and thin films. I lead the work on thin-film instabilities and advise students working on elongated bubble flow and heterogeneous nucleate boiling.</p>
+  <div class="tags" aria-label="Core methods">
+    <span class="tag">LES / DNS</span><span class="tag">Euler–Lagrange</span><span class="tag">Multiphase flow</span><span class="tag">Reduced-order models</span><span class="tag">ML closures</span><span class="tag">Uncertainty quantification</span><span class="tag">HPC</span>
+  </div>
+  <div class="links">
+    <a class="btn primary" href="assets/CV_Krishnaprasad.pdf">CV (PDF)</a>
+    <a class="btn" href="https://scholar.google.co.in/citations?user=UDheclsAAAAJ&amp;hl=en">Google Scholar</a>
+    <a class="btn" href="https://github.com/krishnap561997">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/krishnap5697/">LinkedIn</a>
+  </div>
+</header>
+
+<section id="research" aria-labelledby="r-h">
+  <div class="sec-head"><span class="label">Current work · 2026–</span><h2 id="r-h">Postdoctoral research</h2></div>
+  <div class="grid2">
+  <div class="proj">
+    <h3>ML-based reduced-order models for microchannel flow boiling</h3>
+    <div class="meta">ONR-funded · technical lead, computational modeling team</div>
+    <p>Microchannel flow boiling cools high-performance computing hardware, power electronics and compact evaporators, yet its design still relies largely on empirical correlations and trial and error. The difficulty lies in the physics: bubble nucleation and growth, bubble merger, elongated bubbles and the thin liquid films they leave behind interact nonlinearly across scales, and their behavior depends on many dimensionless groups at once. Our team combines experiments, interface-resolved simulations and physics-informed machine learning to build reduced-order models that span the full sequence of regimes, from heterogeneous nucleate boiling through elongated bubbles to thin films.</p>
+    <p>Alongside my own work on thin films, I advise students on theoretical modeling and on developing interface-resolved simulations of heterogeneous nucleate boiling and elongated bubble flow, the regimes that precede thin-film formation in the channel.</p>
+  </div>
+  <div class="proj">
+    <h3>Thin-film instabilities</h3>
+    <p>Most of the heat transfer in microchannel flow boiling comes from evaporation of the thin liquid film between the vapor and the wall, so predicting how that film behaves is central to predicting performance. In this work, I am developing:</p>
+    <ul>
+      <li>Interface-resolved DNS of thin-film flows in Basilisk to capture the nonlinear growth of interfacial instabilities.</li>
+      <li>A reduced-order solver built on analytical formulations that matches DNS accuracy at about 100× lower cost.</li>
+      <li>A machine-learning framework that estimates the ROM's closure terms and extends its accuracy across the parameter space.</li>
+    </ul>
+    <div class="tags"><span class="tag">Basilisk C</span><span class="tag">DNS</span><span class="tag">ROM</span><span class="tag">Python / ML</span></div>
+  </div>
+  </div>
+</section>
+
+<section aria-labelledby="phd-h">
+  <div class="sec-head"><span class="label">PhD · 2022–2025 · advisor S. Balachandar · funded by NSF and LG Electronics</span><h2 id="phd-h">A fluid mechanics-informed statistical framework for indoor airborne transmission</h2></div>
+  <div class="featured">
+    <div class="proj">
+      <p>Fast risk models such as the Wells–Riley model treat a room as perfectly well-mixed. This ignores the distance between an infected and a susceptible person, and it cannot account for the uncertainties caused by turbulence and inhomogeneity. I instead treated airborne transmission as a coupled turbulent dispersal and statistical problem.</p>
+      <ul>
+        <li><strong>Simulations:</strong> massively parallel Euler–Lagrange LES in Nek5000 across flow rates, room geometries and ventilation systems, including HVAC filtration and heat sources.</li>
+        <li><strong>Statistical overloading:</strong> a novel method that exploits one-way coupling to obtain two-point, two-time Lagrangian statistics across nearly 25 million possible locations, with rigorous uncertainty estimates.</li>
+        <li><strong>Findings:</strong> quantified the effects of proximity, air changes per hour and filter efficiency, including a non-zero worst-case ACH for short-term exposure.</li>
+        <li><strong>Model:</strong> a data-driven stochastic model that predicts mean dispersal and its turbulence-driven uncertainty.</li>
+      </ul>
+      <p class="note">Collaborations with Pusan National University, UT Rio Grande Valley, AtkinsRéalis and LG Electronics led to 10 journal papers and 11 conference talks.</p>
+    </div>
+    <figure>
+      <video src="assets/dispersal.mp4" poster="assets/dispersal.jpg" autoplay muted loop playsinline preload="metadata" aria-label="LES of aerosol dispersal in a ventilated room"></video>
+      <figcaption>Euler–Lagrange LES: droplet nuclei from a cough spread through a mechanically ventilated room. Color shows particle diameter.</figcaption>
+    </figure>
+  </div>
+  <div class="gallery">
+    <figure>
+      <video src="assets/cough.mp4" poster="assets/cough.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Cough jet close-up"></video>
+      <figcaption>Near field: the cough jet and the particles it releases.</figcaption>
+    </figure>
+    <figure>
+      <video src="assets/wall-ac.mp4" poster="assets/wall-ac.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Source near the wall"></video>
+      <figcaption>The position of the source changes where the plume is carried.</figcaption>
+    </figure>
+    <figure>
+      <video src="assets/heating.mp4" poster="assets/heating.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Internal heating"></video>
+      <figcaption>Internal heat sources and natural convection reshape the dispersal.</figcaption>
+    </figure>
+  </div>
+  <div class="tags"><span class="tag">Nek5000</span><span class="tag">Fortran / C</span><span class="tag">ANSYS Fluent (RANS)</span><span class="tag">MATLAB</span><span class="tag">Python</span><span class="tag">MPI</span><span class="tag">Slurm</span></div>
+</section>
+
+<section aria-labelledby="other-h">
+  <div class="sec-head"><span class="label">Other projects</span><h2 id="other-h">Related work</h2></div>
+  <div class="grid2">
+    <div class="proj">
+      <h3>Seabed scour around offshore wind farms</h3>
+      <div class="meta">2024–2025</div>
+      <p>I contributed to CFD frameworks for seabed scour around offshore structures and built a low-cost Python/MATLAB tool that evaluates hydrodynamic loading on subsea cables, avoiding up to 11,000 CPU hours of repeated simulations.</p>
+    </div>
+    <div class="proj">
+      <h3>RANS vs. LES for indoor flows</h3>
+      <div class="meta">with Pusan National University</div>
+      <p>We replicated the LES framework with RANS in ANSYS Fluent across five room and ventilation configurations to assess where the lower-fidelity approach can be trusted.</p>
+    </div>
+    <div class="proj">
+      <h3>Perfusion bioreactor modeling</h3>
+      <div class="meta">2021</div>
+      <p>I performed 3D flow and waste-clearance simulations of bioprinted liver tissue to guide feeding and waste-removal schedules.</p>
+    </div>
+    <div class="proj">
+      <h3>Viscoelastic MHD flows</h3>
+      <div class="meta">IIT Kharagpur · 2019–2020</div>
+      <p>I developed an analytical model for the deformation of a viscoelastic fluid column in MHD flow and extended it with ANSYS Fluent UDFs.</p>
+    </div>
+  </div>
+  <div class="proj col">
+    <h3>Software</h3>
+    <p><a href="https://github.com/krishnap561997/MADRAS">MADRAS</a> is the software implementation of the statistical overloading framework, used to compute turbulent dispersal statistics and their uncertainties.</p>
+  </div>
+</section>
+
+<section id="publications" aria-labelledby="p-h">
+  <div class="sec-head"><span class="label">Journal articles</span><h2 id="p-h">Publications</h2></div>
+  <ol class="pubs">
+    <li><div>I. Velazquez, <b>K.A. Krishnaprasad</b>, N. Zgheib, C. McGhee, C. Ferguson, D.C.J.D. Hoyal, S. Balachandar. <a class="t" href="https://pubs.aip.org/aip/pof/article-abstract/37/12/123347/3374903/">Oscillatory flow around a periodic array of circular cylinders under bedload dominated sediment transport.</a> <span class="v">Physics of Fluids</span> (2025).</div></li>
+    <li><div><b>K.A. Krishnaprasad</b>, N. Zgheib, S. Balachandar. <a class="t" href="https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.10.054302">A statistical approach to turbulent dispersal of aerosols for accurate prediction of concentration and associated uncertainties.</a> <span class="v">Physical Review Fluids</span> (2025).</div></li>
+    <li><div><b>K.A. Krishnaprasad</b>, R. Patel, C. El Khoury, A.J. Banko, N. Zgheib, S. Balachandar. <a class="t" href="https://doi.org/10.1016/j.jaerosci.2025.106590">The statistical overloading framework for accurate evaluation of pollutant dispersal with rigorous uncertainty estimation.</a> <span class="v">Journal of Aerosol Science</span> (2025).</div></li>
+    <li><div>R. Patel, <b>K.A. Krishnaprasad</b>, N. Zgheib, J.S. Salinas, S. Balachandar. <a class="t" href="https://iopscience.iop.org/article/10.1088/1873-7005/ad8376">Influence of internal heating and natural convection on airborne transmission of viral diseases.</a> <span class="v">Fluid Dynamics Research</span> (2024).</div></li>
+    <li><div>M.R. Anjum, V. Subramaniam, B.R. Higgins, C. Abrahan, S. Chisolm, <b>K.A. Krishnaprasad</b>, O. Azie, G. Palmer, T. Angelini, M. Sarntinoranont. <a class="t" href="https://pubs.acs.org/doi/full/10.1021/acsbiomaterials.4c01086">Determining rates of molecular secretion from supernatant concentration measurements in a 3D-bioprinted human liver tissue model.</a> <span class="v">ACS Biomaterials Science &amp; Engineering</span> (2024).</div></li>
+    <li><div><b>K.A. Krishnaprasad</b>, N. Zgheib, M.Y. Ha, K. Choudhary, C.Y. Choi, S. Jang, K.S. Bang, S. Balachandar. <a class="t" href="https://doi.org/10.1155/2024/6642205">Existence of a non-zero worst-case ACH for short-term exposure in ventilated indoor spaces.</a> <span class="v">Indoor Air</span> (2024).</div></li>
+    <li><div>K. Choudhary, <b>K.A. Krishnaprasad</b>, N. Zgheib, M.Y. Ha, S. Balachandar. <a class="t" href="https://doi.org/10.1016/j.buildenv.2023.110834">Effect of room size, shape, AC placement, and air leakage on indoor airborne viral transmission.</a> <span class="v">Building and Environment</span> (2023).</div></li>
+    <li><div>K. Choudhary, <b>K.A. Krishnaprasad</b>, S. Pandey, N. Zgheib, J.S. Salinas, M.Y. Ha, S. Balachandar. <a class="t" href="https://www.sciencedirect.com/science/article/pii/S0045793023000701">Effectiveness of RANS in predicting indoor airborne viral transmission: A critical evaluation against LES.</a> <span class="v">Computers &amp; Fluids</span> (2023).</div></li>
+    <li><div><b>K.A. Krishnaprasad</b>, J.S. Salinas, N. Zgheib, S. Balachandar. <a class="t" href="https://doi.org/10.1063/5.0135718">Fluid mechanics of air recycling and filtration for indoor airborne transmission.</a> <span class="v">Physics of Fluids</span> (2023).</div></li>
+    <li><div>J.S. Salinas, <b>K.A. Krishnaprasad</b>, N. Zgheib, S. Balachandar. <a class="t" href="https://link.aps.org/doi/10.1103/PhysRevFluids.7.064309">Improved guidelines of indoor airborne transmission taking into account departure from the well-mixed assumption.</a> <span class="v">Physical Review Fluids</span> (2022).</div></li>
+  </ol>
+  <p class="note">I have also co-authored 11 conference presentations at APS DFD (2022–2025), the Gordon Research Conference on Fluids in Disease Transmission, ICTAM and ASTFE. Full list in the <a href="assets/CV_Krishnaprasad.pdf">CV</a>.</p>
+</section>
+
+<section id="experience" aria-labelledby="e-h">
+  <div class="sec-head"><span class="label">Background</span><h2 id="e-h">Experience &amp; education</h2></div>
+  <ul class="tl">
+    <li><span class="d">2026 – present</span><span><strong>Postdoctoral Researcher</strong>, University of Florida</span></li>
+    <li><span class="d">2022 – 2025</span><span><strong>Ph.D., Mechanical Engineering</strong>, University of Florida</span></li>
+    <li><span class="d">2015 – 2019</span><span><strong>B.Tech., Mechanical Engineering</strong>, NIT Trichy</span></li>
+  </ul>
+</section>
+
+<section id="contact" aria-labelledby="c-h" class="contact">
+  <div class="sec-head"><span class="label">Get in touch</span><h2 id="c-h">Contact</h2></div>
+  <p class="col" style="margin:0">I am interested in postdoctoral and research roles in fluid dynamics and CFD, particularly those that draw on machine learning and statistics, and in applications to environmental and urban flows, climate and nuclear energy.</p>
+  <p style="margin:0">Email: <code>krishnap.kalivel@ufl.edu</code></p>
+</section>
+
+<footer>© 2026 Krishnaprasad K.A. · Gainesville, FL</footer>
+</div>
+</body>
+</html>
